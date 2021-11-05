@@ -1,19 +1,482 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RELATÓRIOS DE ATIVIDADES</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Onix EtherNet/IP</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Manual Onix EtherNet/IP";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
 </head>
-<body>
-    <a href="/AGENDA_ATIVIDADES_DIARIAS.md" target="_blank" rel="next">Agenda de Atividades diárias</a>
-    <br>
-    <a href="/ATIVIDADES_REALIZADAS.md"target="_blank" rel="next">Atividades Realizadas</a>
-    <br>
-    <a href="/OBSERVAÇÕES.md"target="_blank" rel="next">Observações</a>
-    <br>
-    <a href="/PRÓXIMAS_ATIVIDADES.md"target="_blank" rel="next">Próximas atividades</a>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> Onix EtherNet/IP</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href=".">Manual Onix EtherNet/IP</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-introducao">1. Introdução</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-protocolo-ethernetip">2. Protocolo Ethernet/IP</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-descricao-da-interface">3. Descrição da Interface</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#31-conectores">3.1 Conectores</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#32-leds-indicativos">3.2 Leds Indicativos</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-instalacao-em-rede">4 Instalação em Rede</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#41-endereco-ip">4.1 Endereço IP</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#42-taxa-de-comunicacao">4.2 Taxa de Comunicação</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#43-cabos">4.3 Cabos</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#44-topologia-de-rede">4.4 Topologia de Rede</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#45-recomendacoes">4.5 Recomendações</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-parametrizacao">5 Parametrização</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#51-simbolos-para-descricao-das-propriedades">5.1 Símbolos para Descrição das propriedades</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#52-parametros">5.2 Parâmetros</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#521-leitura-de-peso">5.2.1 Leitura de Peso</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">Onix EtherNet/IP</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Manual Onix EtherNet/IP</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="manual-onix-ethernetip">Manual Onix EtherNet/IP</h1>
+<h2 id="1-introducao">1. Introdução</h2>
+<p style="text-align: justify">
+    O documento a seguir detalha a instalação e utilização do Indicador de pesagem Onix Ethernet/IP. Cabe destacar que este manual comporta-se como um anexo ao manual do Indicador de Pesagem Onix.
+</p>
+
+<h2 id="2-protocolo-ethernetip">2. Protocolo Ethernet/IP</h2>
+<p style="text-align: justify">
+    O protocolo Ethernet/IP faz uso da tecnologia Ethernet, fornecendo interconexões para rede(s) local(is), efetuando a comunicação através do envio de pacotes(norma IEEE 802-2 e IEEE 802-3). É definido pelo Ethernet o tipo de cabeamento e sinais elétricos para a camada física além do formato dos pacotes e protocolos seguindo o modelo OSI. Ao abordar protocolos de comunicação, antes é necessário defini-los. Protocolos em especial os de comunicação são um conjunto de regras e procedimentos que visam proporcionar um conjunto de regras  que controlam a troca de dados entre máquinas e sistemas 
+</p>
+
+<p style="text-align: justify">  
+    Baseado no meio físico de comunicação Ethernet surgiram diversos protocolos de comunicação, servindo a diversas finalidades. Atualmente diversos protocolos trafegam sobre este meio físico como o FTP, HTTP, IP, TPC, UDP, entre outros.
+</p>
+
+<p style="text-align: justify"> 
+    Além do uso em computadores em ambientes residenciais, comerciais e acadêmicos a tecnologia Ethernet é difundida também em ambientes industriais para interconexões de equipamentos e maquinários. Em ambientes industriais surgiram diferentes protocolos de comunicação como Modbus TCP, Ethernet/IP e Profinet, todos utilizando o meio físico Ethernet.
+</p>
+
+<h2 id="3-descricao-da-interface">3. Descrição da Interface</h2>
+<p style="text-align: justify"> 
+    O equipamento indicador de pesagem Onix EtherNet/IP utiliza um conector RJ45 para ligação com a rede, e uma entrada serial para a configuração de parâmetros de comunicação.
+</p>
+
+<div style="text-align: center">
+    <img src="img/001.png" alt="Vista frontal da Porta Ethernet (Inserir imagem)">
+    <p>Inserir imagem lateral do equipamento</p>
+</div>
+
+<h3 id="31-conectores">3.1 Conectores</h3>
+<p style="text-align: justify"> 
+    A equipamento Onix EtherNet/IP possui um conector RJ45 para ligação em rede, a pinagem do conector segue o padrão Fast Ethernet 100BASE-TX utilizando dois pares de cabos para transmissão e recepção de dados.
+</p>
+
+<h3 id="32-leds-indicativos">3.2 Leds Indicativos</h3>
+<p style="text-align: justify"> 
+    O Equipamento Onix EtherNet/IP possui um LED de indicação na porta EtherNet/IP, além de outro led que possui as seguintes indicações.
+</p>
+
+<div style="text-align: center">
+    <img src="img/002.jpg" alt="Vista frontal da Porta Ethernet (Inserir imagem)">
+    <p>Vista de um switch conectado ao Onix Ethernet (Inserir imagem)</p>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>LED</th>
+<th>COR</th>
+<th>FUNÇÃO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Link</td>
+<td>Verde</td>
+<td>Led de indicação de atividade</td>
+</tr>
+<tr>
+<td>Module Status (MS)</td>
+<td>Bicolor (Verde/Vermelho)</td>
+<td>(verificar a existência destes LEDs)</td>
+</tr>
+<tr>
+<td>Network Status (NS)</td>
+<td>Bicolor (Verde/Vermelho)</td>
+<td>(verificar a existência destes LEDs)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-instalacao-em-rede">4 Instalação em Rede</h2>
+<p style="text-align: justify"> 
+As recomendações expressas neste capítulo devem ser observadas para o correto funcionamento do equipamento em rede.
+</p>
+
+<h3 id="41-endereco-ip">4.1 Endereço IP</h3>
+<p style="text-align: justify"> 
+Todo equipamento em uma rede Ethernet independente do protocolo necessita de um endereço IP e máscara de sub-rede.
+</p>
+<p style="text-align: justify"> 
+O endereço IP em uma rede deve ser único para cada 
+equipamento. A mascara de sub-rede tem como função definir faixas válidas de endereço IP na rede 
+</p>
+
+<h3 id="42-taxa-de-comunicacao">4.2 Taxa de Comunicação</h3>
+<p style="text-align: justify"> 
+O indicador de pesagem Onix EtherNet/IP se comunica utilizando taxas de <b>(VERIFICAR A TAXA DE COMUNICAÇÃO DO NETIC)</b>
+</p>
+
+<h3 id="43-cabos">4.3 Cabos</h3>
+<p style="text-align: justify"> 
+Abaixo segue as características recomendadas para o cabo utilizado na instalação:
+</p>
+
+<div style="margin-left: 2em">
+    <p style="text-align: justify"> 
+        - Cabo padrão Ethernet, 100Base-TX (FastEthernet), CAT 5e ou superior.
+    </p>
+
+    <p style="text-align: justify"> 
+        - Utilizar (preferencialmente) cabo blindado.
+    </p>
+
+    <p style="text-align: justify"> 
+        - Comprimento máximo: 100 m.
+    </p>
+</div>
+
+<h3 id="44-topologia-de-rede">4.4 Topologia de Rede</h3>
+<p style="text-align: justify">  
+A conexão do indicador Onix EtherNet/IP em rede Ethernet é feita geralmente em estrela com a utilização de um switch industrial.
+</p>
+
+<div style="text-align: center">
+    <img src="img/003.png" alt="Vista de um switch conectado ao Onix Ethernet (Inserir imagem)">
+    <p>Vista de um switch conectado ao Onix Ethernet (Inserir imagem)</p>
+</div>
+
+<h3 id="45-recomendacoes">4.5 Recomendações</h3>
+<p style="text-align: justify">  
+    O aterramento correto do equipamento diminui possiveis problemas causados por interferências oriundas de ambientes industrial. É recomendavel seguir as seguintes recomendações:
+</p>
+
+<div style="margin-left: 2em">
+    <p style="text-align: justify">
+        - Utilizar cabos Ethernet com blindagem, bem como conectores que utilizem invólucro metálico;
+    </p>
+
+    <p style="text-align: justify">
+        - Efetuar a ligação do terra ao equipamento. Evitar a conexão do cabo em múltiplos pontos de aterramento, principalmente quando existir diferentes pontos de potenciais;
+    </p>
+
+    <p style="text-align: justify">
+        - Passar cavos de comunicação em vias dedicadas, evitando a passagem de cabos de alta potência proximos.
+    </p>
+</div>
+
+<h2 id="5-parametrizacao">5 Parametrização</h2>
+<p style="text-align: justify">
+    Serão descritos neste capítulos parâmetros do indicador de Pesagem Onix EtherNet/IP, vínculo com a comunicação Ethernet
+</p>
+
+<h3 id="51-simbolos-para-descricao-das-propriedades">5.1 Símbolos para Descrição das propriedades</h3>
+<table>
+<thead>
+<tr>
+<th>Símbolo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SL</td>
+<td>Somente Leitura</td>
+</tr>
+<tr>
+<td>SE</td>
+<td>Somente Escrita</td>
+</tr>
+<tr>
+<td>PM</td>
+<td>Posição de Memória</td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-parametros">5.2 Parâmetros</h3>
+<h4 id="521-leitura-de-peso">5.2.1 Leitura de Peso</h4>
+<table>
+<thead>
+<tr>
+<th>PM</th>
+<th>Faixa de valores</th>
+<th>Propriedade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2, 3</td>
+<td>0x0000  ~ 0xFFFF</td>
+<td>SL</td>
+</tr>
+</tbody>
+</table>
+<p><b>Descrição:</b></p>
+
+<p style="text-align: justify">
+    Este parâmetro permite efetuar a leitura de peso obtida pelo equipamento. Esta informação é composta de dois valores de 16bits. Segue abaixo o descritivo do armazenamento da informação:
+</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Bits</th>
+<th align="center">Informação</th>
+<th align="center">Descritivo (PM 2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">15 ~ 8</td>
+<td align="center">STS</td>
+<td align="center">Status de pesagem</td>
+</tr>
+<tr>
+<td align="center">7 ~ 0</td>
+<td align="center">PESO C</td>
+<td align="center">Primeira fração mais significativa da pesagem</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="center">Bits</th>
+<th align="center">Informação</th>
+<th align="center">Descritivo (PM 3)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">15 ~ 8</td>
+<td align="center">PESO B</td>
+<td align="center">Segunda fração mais significativa da pesagem</td>
+</tr>
+<tr>
+<td align="center">7 ~ 0</td>
+<td align="center">PESO C</td>
+<td align="center">Última fração da pesagem</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Descrição Bits STS:</strong></p>
+<table>
+    <tr>
+        <td>BITS</td>
+        <td>INFORMAÇÃO</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>1: Peso Bruto, 0: Peso Líquido</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>1: Sobrecarga</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>1: Saturação do AD</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>1: Peso Estável, 0: Peso não estável</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>1: Peso Negativo, 0: Peso Positivo</td>
+    </tr>
+    <tr>
+        <td>2, 1, 0</td>
+        <td> Posição Ponto decimal <b>(Descrição na tabela abaixo)</b></td>
+    </tr>
+</table>
+
+<p><strong>Descrição Bits Posição Ponto Decimal:</strong></p>
+<div style="position: relative">
+<table>
+    <tr>
+        <td>BIT 2</td>
+        <td>BIT 1</td>
+        <td>BIT 0</td>
+        <td> INFORMAÇÃO</td>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>Sem Ponto Decimal</td>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td> Formato 0,0</td>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>Formato 0,00</td>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>Formato 0,000</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>Formato 0,0000</td>
+    </tr>
+</table>
+</div>
+
+<div style="margin-left: 2em">
+    <p style="color: gray">
+        <b>Observação:</b> Valores de bits não contemplados na tabela acima não possuem configuração válida
+    </p>
+</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
 </body>
 </html>
 
+<!--
+MkDocs version : 1.2.3
+Build Date UTC : 2021-11-05 13:30:46.862171+00:00
+-->
