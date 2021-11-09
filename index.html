@@ -328,7 +328,7 @@ A conexão do indicador Onix EtherNet/IP em rede Ethernet é feita geralmente em
 </tr>
 <tr>
 <td align="center">7 ~ 0</td>
-<td align="center">PESO C</td>
+<td align="center">PESO_A</td>
 <td align="center">Primeira fração mais significativa da pesagem</td>
 </tr>
 </tbody>
@@ -344,12 +344,12 @@ A conexão do indicador Onix EtherNet/IP em rede Ethernet é feita geralmente em
 <tbody>
 <tr>
 <td align="center">15 ~ 8</td>
-<td align="center">PESO B</td>
+<td align="center">PESO_B</td>
 <td align="center">Segunda fração mais significativa da pesagem</td>
 </tr>
 <tr>
 <td align="center">7 ~ 0</td>
-<td align="center">PESO C</td>
+<td align="center">PESO_C</td>
 <td align="center">Última fração da pesagem</td>
 </tr>
 </tbody>
@@ -357,8 +357,8 @@ A conexão do indicador Onix EtherNet/IP em rede Ethernet é feita geralmente em
 <p><strong>Descrição Bits STS:</strong></p>
 <table>
     <tr>
-        <td>BITS</td>
-        <td>INFORMAÇÃO</td>
+        <td><b>BITS</b></td>
+        <td><b>INFORMAÇÃO</b></td>
     </tr>
     <tr>
         <td>7</td>
@@ -390,10 +390,10 @@ A conexão do indicador Onix EtherNet/IP em rede Ethernet é feita geralmente em
 <div style="position: relative">
 <table>
     <tr>
-        <td>BIT 2</td>
-        <td>BIT 1</td>
-        <td>BIT 0</td>
-        <td> INFORMAÇÃO</td>
+        <td><b>BIT 2</b></td>
+        <td><b>BIT 1</b></td>
+        <td><b>BIT 0</b></td>
+        <td><b>INFORMAÇÃO</b></td>
     </tr>
     <tr>
         <td>0</td>
@@ -432,6 +432,91 @@ A conexão do indicador Onix EtherNet/IP em rede Ethernet é feita geralmente em
     <p style="color: gray">
         <b>Observação:</b> Valores de bits não contemplados na tabela acima não possuem configuração válida
     </p>
+</div>
+
+<p><strong>Calculo da Informação Peso:</strong></p>
+<div style="text-align: justify margin-bottom: 0em">
+    <p>
+        A informação peso é obtida através do calculo utilizando os dados PESO A, PESO B, PESO C e STS. O valor bruto da informação peso pode ser descrito conforme a formula abaixo.
+    </p>
+</div>
+<div style="margin-left: 2em; background: rgb(228, 226, 226); width: 57%; margin-top: 0em margin-bottom: 0em">
+    <p>
+        PESO = (PESO_A x 65536) + (PESO_B x 256) + PESO_C
+    </p>
+</div>
+<div style="text-align: justify margin-bottom: 0em">
+    <p>
+        Após o calculo descrito acima as informações de sinal e casas decimais devem ser inseridas.
+    </p>
+    <p>
+        Segue abaixo dois exemplo do processamento das informações de peso em linguagem C e em linguagem Ladder.
+    </p>
+</div>
+
+<div style="text-align: justify margin-bottom: 0em">
+    <p>
+        Exemplo em Linguagem C:
+    </p>
+</div>
+
+<pre><code class="language-c">/*
+ * Valores atributos pesoA_ethernetIP , pesoB_ethernetIP,pesoB_ethernetIP 
+ * e sts_ethernetIP são aqueles recebidos pelo protocolo  EtherNetIP
+ *
+ */
+float PESO(uint16_t pesoA_ethernetIP,uint16_t pesoB_ethernetIP, uint16_t  pesoC_ethernetIP, sts_ethernetIP)
+{
+    uint16_t peso;
+    uint16_t p_decimal;
+    uint16_t sinal;
+
+    peso = (pesoA_ethernetIP * 65536) + (pesoB_ethernetIP * 256) + pesoC_ethernetIP
+
+    p_decimal = sts_ethernetIP &amp; 0b0000000000000111;
+
+    switch(p_decimal):
+    {
+        case 1:
+            peso_decimal = peso / 10;
+            break;
+        case 2:
+            peso_decimal = peso / 100;
+            break;
+        case 3:
+            peso_decimal = peso / 1000;
+            break;
+        case 4:
+            peso_decimal = peso / 10000;
+            break;
+    }
+
+    sinal = sts_ethernetIP &amp; 0b0000000000001000;
+
+    if(sinal != 0x0000)
+    {
+        peso_decimal *= -1;        
+    }
+
+    /*
+     * Em virtude de como a linguagem armazena os valores do tipo float
+     * para que as casas decimais sejam exatamente em quantidade àquelas
+     * desejadas deve ser tratado as casas decimais retornadas do armaze-
+     * namento em variável
+     */
+
+    return peso_decimal;
+}
+</code></pre>
+<div style="text-align: justify margin-bottom: 0em">
+    <p>
+        Exemplo em Linguagem Ladder:
+    </p>
+</div>
+
+<div style="text-align: center">
+    <img src="img/004.png" alt="Vista frontal da Porta Ethernet (Inserir imagem)">
+    <p>Imagem do exemplo em linguagem ladder</p>
 </div>
               
             </div>
@@ -478,5 +563,5 @@ A conexão do indicador Onix EtherNet/IP em rede Ethernet é feita geralmente em
 
 <!--
 MkDocs version : 1.2.3
-Build Date UTC : 2021-11-05 13:30:46.862171+00:00
+Build Date UTC : 2021-11-09 18:02:32.872010+00:00
 -->
