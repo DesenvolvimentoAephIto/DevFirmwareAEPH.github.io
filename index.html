@@ -83,6 +83,16 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#521-leitura-de-peso">5.2.1 Leitura de Peso</a>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#522-leitura-de-tara">5.2.2 Leitura de Tara</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#523-leitura-de-filtro">5.2.3 Leitura de Filtro</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#524-leitura-do-fator-de-sensibilidade">5.2.4 Leitura do Fator de Sensibilidade</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#524-leitura-de-pesagem-rapida-prap">5.2.4 Leitura de Pesagem Rápida (PrAP)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#525-leitura-de-unidade-de-leitura-unl">5.2.5 Leitura de Unidade de Leitura (UnL)</a>
+    </li>
         </ul>
     </li>
         </ul>
@@ -126,20 +136,20 @@
                 <h1 id="manual-onix-ethernetip">Manual Onix EtherNet/IP</h1>
 <h2 id="1-introducao">1. Introdução</h2>
 <p style="text-align: justify">
-    O documento a seguir detalha a instalação e utilização do Indicador de pesagem Onix Ethernet/IP. Cabe destacar que este manual comporta-se como um anexo ao manual do Indicador de Pesagem Onix.
+    O documento a seguir detalha a instalação e utilização do Indicador de pesagem Onix Ethernet/IP. Cabe destacar que este comporta-se como um anexo ao manual do Indicador de Pesagem Onix.
 </p>
 
 <h2 id="2-protocolo-ethernetip">2. Protocolo Ethernet/IP</h2>
 <p style="text-align: justify">
-    O protocolo Ethernet/IP faz uso da tecnologia Ethernet, fornecendo interconexões para rede(s) local(is), efetuando a comunicação através do envio de pacotes(norma IEEE 802-2 e IEEE 802-3). É definido pelo Ethernet o tipo de cabeamento e sinais elétricos para a camada física além do formato dos pacotes e protocolos seguindo o modelo OSI. Ao abordar protocolos de comunicação, antes é necessário defini-los. Protocolos em especial os de comunicação são um conjunto de regras e procedimentos que visam proporcionar um conjunto de regras  que controlam a troca de dados entre máquinas e sistemas 
+    O protocolo Ethernet/IP faz uso da tecnologia Ethernet, fornecendo interconexões para rede(s) local(is), efetuando a comunicação através do envio de pacotes(norma IEEE 802-2 e IEEE 802-3). É definido pelo Ethernet o tipo de cabeamento e sinais elétricos para a camada física além do formato dos pacotes e protocolos seguindo o modelo OSI. Ao abordar protocolos de comunicação, antes é necessário defini-los. Protocolos, em especial os de comunicação são um conjunto de regras e procedimentos que visam proporcionar a troca de dados entre máquinas e sistemas 
 </p>
 
 <p style="text-align: justify">  
-    Baseado no meio físico de comunicação Ethernet surgiram diversos protocolos de comunicação, servindo a diversas finalidades. Atualmente diversos protocolos trafegam sobre este meio físico como o FTP, HTTP, IP, TPC, UDP, entre outros.
+    Baseado no meio físico de comunicação Ethernet surgiram diversos protocolos de comunicação, servindo a diversas finalidades. Atualmente entre os diversos protocolos que trafegam sobre este meio físico como o FTP, HTTP, IP, TPC, UDP...
 </p>
 
 <p style="text-align: justify"> 
-    Além do uso em computadores em ambientes residenciais, comerciais e acadêmicos a tecnologia Ethernet é difundida também em ambientes industriais para interconexões de equipamentos e maquinários. Em ambientes industriais surgiram diferentes protocolos de comunicação como Modbus TCP, Ethernet/IP e Profinet, todos utilizando o meio físico Ethernet.
+    Além do uso em computadores em ambientes residenciais, comerciais e acadêmicos a tecnologia Ethernet é difundida também em ambientes industriais para interconexões de equipamentos e maquinários. Nesses surgiram diferentes protocolos de comunicação como Modbus TCP, Ethernet/IP e Profinet, todos utilizando o meio físico Ethernet.
 </p>
 
 <h2 id="3-descricao-da-interface">3. Descrição da Interface</h2>
@@ -154,7 +164,7 @@
 
 <h3 id="31-conectores">3.1 Conectores</h3>
 <p style="text-align: justify"> 
-    A equipamento Onix EtherNet/IP possui um conector RJ45 para ligação em rede, a pinagem do conector segue o padrão Fast Ethernet 100BASE-TX utilizando dois pares de cabos para transmissão e recepção de dados.
+    O equipamento Onix EtherNet/IP possui um conector RJ45 para ligação em rede, a pinagem do conector segue o padrão Fast Ethernet 100BASE-TX utilizando dois pares de cabos para transmissão e recepção de dados.
 </p>
 
 <h3 id="32-leds-indicativos">3.2 Leds Indicativos</h3>
@@ -195,45 +205,38 @@
 </table>
 <h2 id="4-instalacao-em-rede">4 Instalação em Rede</h2>
 <p style="text-align: justify"> 
-As recomendações expressas neste capítulo devem ser observadas para o correto funcionamento do equipamento em rede.
+    As recomendações expressas neste capítulo devem ser observadas para o correto funcionamento do equipamento em rede.
 </p>
 
 <h3 id="41-endereco-ip">4.1 Endereço IP</h3>
 <p style="text-align: justify"> 
-Todo equipamento em uma rede Ethernet independente do protocolo necessita de um endereço IP e máscara de sub-rede.
+    Todo equipamento em uma rede Ethernet independente do protocolo necessita de um endereço IP e máscara de sub-rede.
 </p>
 <p style="text-align: justify"> 
-O endereço IP em uma rede deve ser único para cada 
-equipamento. A mascara de sub-rede tem como função definir faixas válidas de endereço IP na rede 
+    O endereço IP em uma rede deve ser único para cada equipamento. A mascara de sub-rede tem como função definir faixas válidas de endereço IP na rede 
 </p>
 
 <h3 id="42-taxa-de-comunicacao">4.2 Taxa de Comunicação</h3>
 <p style="text-align: justify"> 
-O indicador de pesagem Onix EtherNet/IP se comunica utilizando taxas de <b>(VERIFICAR A TAXA DE COMUNICAÇÃO DO NETIC)</b>
+    O indicador de pesagem Onix EtherNet/IP se comunica utilizando taxas de <b>(VERIFICAR A TAXA DE COMUNICAÇÃO DO NETIC)</b>
 </p>
 
 <h3 id="43-cabos">4.3 Cabos</h3>
 <p style="text-align: justify"> 
-Abaixo segue as características recomendadas para o cabo utilizado na instalação:
+    Abaixo segue as características recomendadas para o cabo utilizado na instalação:
 </p>
 
 <div style="margin-left: 2em">
     <p style="text-align: justify"> 
-        - Cabo padrão Ethernet, 100Base-TX (FastEthernet), CAT 5e ou superior.
-    </p>
-
-    <p style="text-align: justify"> 
-        - Utilizar (preferencialmente) cabo blindado.
-    </p>
-
-    <p style="text-align: justify"> 
+        - Cabo padrão Ethernet, 100Base-TX (FastEthernet), CAT 5e ou superior.<br>
+        - Utilizar (preferencialmente) cabo blindado.<br>
         - Comprimento máximo: 100 m.
     </p>
 </div>
 
 <h3 id="44-topologia-de-rede">4.4 Topologia de Rede</h3>
 <p style="text-align: justify">  
-A conexão do indicador Onix EtherNet/IP em rede Ethernet é feita geralmente em estrela com a utilização de um switch industrial.
+    A conexão do indicador Onix EtherNet/IP em rede Ethernet é feita geralmente em estrela com a utilização de um switch industrial.
 </p>
 
 <div style="text-align: center">
@@ -243,20 +246,14 @@ A conexão do indicador Onix EtherNet/IP em rede Ethernet é feita geralmente em
 
 <h3 id="45-recomendacoes">4.5 Recomendações</h3>
 <p style="text-align: justify">  
-    O aterramento correto do equipamento diminui possiveis problemas causados por interferências oriundas de ambientes industrial. É recomendavel seguir as seguintes recomendações:
+    O aterramento correto do equipamento diminui possíveis problemas causados por interferências oriundas de ambientes industrial. É recomendável seguir as seguintes recomendações:
 </p>
 
 <div style="margin-left: 2em">
     <p style="text-align: justify">
-        - Utilizar cabos Ethernet com blindagem, bem como conectores que utilizem invólucro metálico;
-    </p>
-
-    <p style="text-align: justify">
-        - Efetuar a ligação do terra ao equipamento. Evitar a conexão do cabo em múltiplos pontos de aterramento, principalmente quando existir diferentes pontos de potenciais;
-    </p>
-
-    <p style="text-align: justify">
-        - Passar cavos de comunicação em vias dedicadas, evitando a passagem de cabos de alta potência proximos.
+        - Utilizar cabos Ethernet com blindagem, bem como conectores que utilizem invólucro metálico;<br>
+        - Efetuar a ligação do terra ao equipamento. Evitar a conexão do cabo em múltiplos pontos de aterramento, principalmente quando existir diferentes pontos de potenciais;<br>
+        - Passar cabos de comunicação em vias dedicadas, evitando a passagem de cabos de alta potência próximos.
     </p>
 </div>
 
@@ -460,53 +457,54 @@ A conexão do indicador Onix EtherNet/IP em rede Ethernet é feita geralmente em
     </p>
 </div>
 
-<pre><code class="language-c">/*
- * Valores atributos pesoA_ethernetIP , pesoB_ethernetIP,pesoB_ethernetIP 
- * e sts_ethernetIP são aqueles recebidos pelo protocolo  EtherNetIP
- *
- */
-float PESO(uint16_t pesoA_ethernetIP,uint16_t pesoB_ethernetIP, uint16_t  pesoC_ethernetIP, sts_ethernetIP)
-{
-    uint16_t peso;
-    uint16_t p_decimal;
-    uint16_t sinal;
-
-    peso = (pesoA_ethernetIP * 65536) + (pesoB_ethernetIP * 256) + pesoC_ethernetIP
-
-    p_decimal = sts_ethernetIP &amp; 0b0000000000000111;
-
-    switch(p_decimal):
+<pre><code class="language-c">    /*
+    * Valores atributos pesoA_ethernetIP , pesoB_ethernetIP,pesoB_ethernetIP 
+    * e sts_ethernetIP são aqueles recebidos pelo protocolo  EtherNetIP
+    */
+    float PESO(uint16_t pesoA_ethernetIP,uint16_t pesoB_ethernetIP, uint16_t  pesoC_ethernetIP, sts_ethernetIP)
     {
-        case 1:
-            peso_decimal = peso / 10;
-            break;
-        case 2:
-            peso_decimal = peso / 100;
-            break;
-        case 3:
-            peso_decimal = peso / 1000;
-            break;
-        case 4:
-            peso_decimal = peso / 10000;
-            break;
+        uint16_t peso;
+        uint16_t p_decimal;
+        uint16_t sinal;
+        float peso_decimal;
+
+        peso = (pesoA_ethernetIP * 65536) + (pesoB_ethernetIP * 256) + pesoC_ethernetIP
+
+        //mascara de bits com lógica AND para obtenção da configuração de casas decimais 
+        p_decimal = sts_ethernetIP &amp; 0b0000000000000111;
+
+        switch(p_decimal):
+        {
+            case 1:
+                peso_decimal = peso / 10;
+                break;
+            case 2:
+                peso_decimal = peso / 100;
+                break;
+            case 3:
+                peso_decimal = peso / 1000;
+                break;
+            case 4:
+                peso_decimal = peso / 10000;
+                break;
+        }
+
+        //mascara de bits com lógica AND para obtenção da configuração de sinal da pesagem 
+        sinal = sts_ethernetIP &amp; 0b0000000000001000;
+
+        if(sinal != 0x0000)
+        {
+            peso_decimal *= -1;        
+        }
+
+       /*
+        * Em virtude de como a linguagem armazena os valores do tipo float
+        * para que as casas decimais sejam exatamente em quantidade àquelas
+        * desejadas deve ser tratado as casas decimais retornadas do armaze-
+        * namento em variável
+        */
+        return peso_decimal;
     }
-
-    sinal = sts_ethernetIP &amp; 0b0000000000001000;
-
-    if(sinal != 0x0000)
-    {
-        peso_decimal *= -1;        
-    }
-
-    /*
-     * Em virtude de como a linguagem armazena os valores do tipo float
-     * para que as casas decimais sejam exatamente em quantidade àquelas
-     * desejadas deve ser tratado as casas decimais retornadas do armaze-
-     * namento em variável
-     */
-
-    return peso_decimal;
-}
 </code></pre>
 <div style="text-align: justify margin-bottom: 0em">
     <p>
@@ -518,6 +516,430 @@ float PESO(uint16_t pesoA_ethernetIP,uint16_t pesoB_ethernetIP, uint16_t  pesoC_
     <img src="img/004.png" alt="Vista frontal da Porta Ethernet (Inserir imagem)">
     <p>Imagem do exemplo em linguagem ladder</p>
 </div>
+
+<h4 id="522-leitura-de-tara">5.2.2 Leitura de Tara</h4>
+<table>
+<thead>
+<tr>
+<th>PM</th>
+<th>Faixa de valores</th>
+<th>Propriedade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4, 5</td>
+<td>0x0000  ~ 0xFFFF</td>
+<td>SL</td>
+</tr>
+</tbody>
+</table>
+<p><b>Descrição:</b></p>
+
+<p style="text-align: justify">
+    Este parâmetro permite efetuar a leitura de tara obtida pelo equipamento. Esta informação é composta de dois valores de 16bits. Segue abaixo o descritivo do armazenamento da informação:
+</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Bits</th>
+<th align="center">Informação</th>
+<th align="center">Descritivo (PM 4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">15 ~ 8</td>
+<td align="center">CASAS</td>
+<td align="center">Status de tara</td>
+</tr>
+<tr>
+<td align="center">7 ~ 0</td>
+<td align="center">TARA_A</td>
+<td align="center">Primeira fração mais significativa da tara</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="center">Bits</th>
+<th align="center">Informação</th>
+<th align="center">Descritivo (PM 5)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">15 ~ 8</td>
+<td align="center">TARA_B</td>
+<td align="center">Segunda fração mais significativa da tara</td>
+</tr>
+<tr>
+<td align="center">7 ~ 0</td>
+<td align="center">TARA_C</td>
+<td align="center">Última fração da tara</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Descrição Bits CASAS:</strong></p>
+<table>
+    <tr>
+        <td><b>BITS</b></td>
+        <td><b>INFORMAÇÃO</b></td>
+    </tr>
+    <tr>
+        <td>2, 1, 0</td>
+        <td> Posição Ponto decimal <b>(Descrição na tabela abaixo)</b></td>
+    </tr>
+</table>
+<div style="margin-left: 2em">
+    <p style="color: gray">
+        <b>Observação:</b> Valores de bits não contemplados na tabela acima não possuem configuração válida
+    </p>
+</div>
+
+<p><strong>Descrição Bits Posição Ponto Decimal:</strong></p>
+<div style="position: relative">
+<table>
+    <tr>
+        <td><b>BIT 2</b></td>
+        <td><b>BIT 1</b></td>
+        <td><b>BIT 0</b></td>
+        <td><b>INFORMAÇÃO</b></td>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>Sem Ponto Decimal</td>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td> Formato 0,0</td>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>Formato 0,00</td>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>Formato 0,000</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>Formato 0,0000</td>
+    </tr>
+</table>
+</div>
+
+<div style="margin-left: 2em">
+    <p style="color: gray">
+        <b>Observação:</b> Valores de bits não contemplados na tabela acima não possuem configuração válida
+    </p>
+</div>
+<p><strong>Calculo da Informação Tara:</strong></p>
+<div style="text-align: justify margin-bottom: 0em">
+    <p>
+        A informação peso é obtida através do calculo utilizando os dados CASAS, TARA_A, TARA_B e TARA_C. O valor bruto da informação tara pode ser descrito conforme a formula abaixo.
+    </p>
+</div>
+<div style="margin-left: 2em; background: rgb(228, 226, 226); width: 57%; margin-top: 0em margin-bottom: 0em">
+    <p>
+        TARA = (TARA_A x 65536) + (TARA_B x 256) + TARA_C
+    </p>
+</div>
+<div style="text-align: justify margin-bottom: 0em">
+    <p>
+        Após o calculo descrito acima as informação de casas decimais devem ser inseridas.
+    </p>
+    <p>
+        Segue abaixo dois exemplo do processamento das informações de peso em linguagem C e em linguagem Ladder.
+    </p>
+</div>
+
+<div style="text-align: justify margin-bottom: 0em">
+    <p>
+        Exemplo em Linguagem C:
+    </p>
+</div>
+
+<pre><code class="language-c">    /*
+    * Valores atributos pesoA_ethernetIP , pesoB_ethernetIP,pesoB_ethernetIP 
+    * e sts_ethernetIP são aqueles recebidos pelo protocolo  EtherNetIP
+    */
+    float TARA(uint16_t taraA_ethernetIP,uint16_t taraB_ethernetIP, uint16_t  taraC_ethernetIP, casas_ethernetIP)
+    {
+        uint16_t tara;
+        uint16_t t_decimal;
+        float tara_decimal;
+
+        tara = (taraA_ethernetIP * 65536) + (taraB_ethernetIP * 256) + taraC_ethernetIP
+
+        //mascara de bits com lógica AND para obtenção da configuração de casas decimais 
+        t_decimal = casas_ethernetIP &amp; 0b0000000000000111;
+
+        switch(t_decimal):
+        {
+            case 1:
+                tara_decimal = tara / 10;
+                break;
+            case 2:
+                tara_decimal = tara / 100;
+                break;
+            case 3:
+                tara_decimal = tara / 1000;
+                break;
+            case 4:
+                tara_decimal = tara / 10000;
+                break;
+        }
+
+       /*
+        * Em virtude de como a linguagem armazena os valores do tipo float
+        * para que as casas decimais sejam exatamente em quantidade
+        * àquelas desejadas deve ser tratado as casas decimais retornadas
+        * do armazenamento em variável
+        */
+        return peso_decimal;
+    }
+</code></pre>
+<div style="text-align: justify margin-bottom: 0em">
+    <p>
+        Exemplo em Linguagem Ladder:
+    </p>
+</div>
+
+<div style="text-align: center">
+    <img src="img/005.png" alt="Vista frontal da Porta Ethernet (Inserir imagem)">
+    <p>Imagem do exemplo em linguagem ladder</p>
+</div>
+
+<h4 id="523-leitura-de-filtro">5.2.3 Leitura de Filtro</h4>
+<table>
+<thead>
+<tr>
+<th>PM</th>
+<th>Faixa de valores</th>
+<th>Propriedade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6</td>
+<td>0x0000  ~ 0x000B</td>
+<td>SL</td>
+</tr>
+</tbody>
+</table>
+<p><b>Descrição:</b></p>
+
+<p style="text-align: justify">
+    Este parâmetro permite efetuar a leitura da configuração da "Função Filtro Digital - FIL" feita no indicador de pesagem. 
+</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Bits</th>
+<th align="center">Informação</th>
+<th align="center">Descritivo (PM 5)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">15 ~ 0</td>
+<td align="center">Configuração</td>
+<td align="center">Configuração de FIL</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify">
+    A tabela abaixo apresenta todos os valores possiveis para FIL. É importante destacar que quanto maior o valor do filtro maior será a estabilidade entregue pelo sistema, consequentemente o tempo de resposta aumenta. 
+</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Valores</th>
+<th align="center">Filtro DIGITAL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">Desabilitado - sem atuação do filtro</td>
+</tr>
+<tr>
+<td align="center">1,2,3,4,5,6,7,8,9,10,11</td>
+<td align="center">Filtro ativo</td>
+</tr>
+</tbody>
+</table>
+<div style="margin-left: 2em; text-align: justify">
+    <p style="color: gray">
+        <b>Observação1:</b> Configuração de filtro valor de 1 a 8 são indicados para processos gerais, destacando que conforme o valor do filtro maior será seu tempo de resposta.<br>      
+        <b>Observação2:</b> Filtros com valores maiores ou iguais a 9 são indicados para pesagem de caminhões em movimento, tanques com agitadores e aplicações como balança de gado, observando que o tempo de resposta terá um incremento de tempo.     
+    </p>
+</div>
+
+<h4 id="524-leitura-do-fator-de-sensibilidade">5.2.4 Leitura do Fator de Sensibilidade</h4>
+<p style="text-align: justify">
+    Este parâmetro permite efetuar a leitura da configuração da "Função Fator de Sensibilidade". 
+</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Bits</th>
+<th align="center">Informação</th>
+<th align="center">Descritivo (PM 7)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">15 ~ 0</td>
+<td align="center">Configuração</td>
+<td align="center">Configuração de Fator de Sensibilidade</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify">
+    A tabela abaixo apresenta todos os valores possiveis para Fator de Sensibilidade. 
+</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Valores</th>
+<th align="center">Fator de Sensibilidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">Respostas rápidas (ideal para pesagem e carga viva - Balança de gado)</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">Para plataformas até 50 Kg</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">Para plataformas até 100 Kg</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">Para plataformas até 1000 Kg</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">Para plataformas acima de 1000 Kg</td>
+</tr>
+</tbody>
+</table>
+<h4 id="524-leitura-de-pesagem-rapida-prap">5.2.4 Leitura de Pesagem Rápida (PrAP)</h4>
+<p style="text-align: justify">
+    Este parâmetro permite efetuar a leitura da configuração da "Função de Pesagem rápida PrAP". Em aplicações onde deseja-se obter apenas o valor final de leitura não se preocupando com os intermediários torna a leitura mais dinâmica (100 milissegundos). Quando PrAP se encontra em seu modo ativo conforme Portaria 236/94 do INMETRO a estabilização do valor de leitura se dá após (500 milissegundos). 
+</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Bits</th>
+<th align="center">Informação</th>
+<th align="center">Descritivo (PM 8)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">Configuração</td>
+<td align="center">Configuração de PrAP</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify">
+    A tabela abaixo apresenta todos os valores possíveis PrAP. É essa configuração possui apenas dois valores possíveis conforme descrito abaixo.
+</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Valores</th>
+<th align="center">Fator de Sensibilidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">PrAP desabilitado</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">PrAP habilitado</td>
+</tr>
+</tbody>
+</table>
+<h4 id="525-leitura-de-unidade-de-leitura-unl">5.2.5 Leitura de Unidade de Leitura (UnL)</h4>
+<p style="text-align: justify">
+    Este parâmetro permite efetuar a leitura da configuração da "Função de Unidade de Leitura UnL". Esta leitura informa a unidade de leitura adotada na pesagem, sendo possível quatro configurações. 
+</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Bits</th>
+<th align="center">Informação</th>
+<th align="center">Descritivo (PM 9)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">7,6,5,4,3,2,1,0</td>
+<td align="center">Configuração</td>
+<td align="center">Configuração de UnL</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify">
+    A tabela abaixo apresenta todos os valores possíveis de UnL. É essa configuração possui quatro valores possíveis conforme descrito abaixo.
+</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Valores</th>
+<th align="center">Fator de Sensibilidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">Sem Unidade de Leitura</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">Tonelada - T</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">Kilograma - Kg</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">Grama - g</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>
@@ -563,5 +985,5 @@ float PESO(uint16_t pesoA_ethernetIP,uint16_t pesoB_ethernetIP, uint16_t  pesoC_
 
 <!--
 MkDocs version : 1.2.3
-Build Date UTC : 2021-11-09 18:02:32.872010+00:00
+Build Date UTC : 2021-11-10 17:10:07.123392+00:00
 -->
