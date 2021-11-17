@@ -93,6 +93,20 @@
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#525-leitura-de-unidade-de-leitura-unl">5.2.5 Leitura de Unidade de Leitura (UnL)</a>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#531-acao-de-tara">5.3.1 Ação de Tara</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#532-acao-de-zero">5.3.2 Ação de Zero</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#533-acao-de-imprimir">5.3.3 Ação de Imprimir</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#534-acao-de-prap">5.3.4 Ação de PrAP</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#535-acao-de-filtro">5.3.5 Ação de Filtro</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#536-acao-de-fator-de-sensibilidade">5.3.6 Ação de Fator de Sensibilidade</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#537-acao-de-unidade-de-leitura">5.3.7 Ação de Unidade de Leitura</a>
+    </li>
         </ul>
     </li>
         </ul>
@@ -221,7 +235,7 @@
     Todo equipamento em uma rede Ethernet independente do protocolo necessita de um endereço IP e máscara de sub-rede.
 </p>
 <p style="text-align: justify"> 
-    O endereço IP em uma rede deve ser único para cada equipamento. A mascara de sub-rede tem como função definir faixas válidas de endereço IP na rede 
+    O endereço IP em uma rede deve ser único para cada equipamento. A máscara de sub-rede tem como função definir faixas válidas de endereço IP na rede. 
 </p>
 
 <h3 id="42-taxa-de-comunicacao">4.2 Taxa de Comunicação</h3>
@@ -231,7 +245,7 @@
 
 <h3 id="43-cabos">4.3 Cabos</h3>
 <p style="text-align: justify"> 
-    Abaixo segue as características recomendadas para o cabo utilizado na instalação:
+    Segue abaixo as características recomendadas para o cabo utilizado na instalação:
 </p>
 
 <div style="margin-left: 2em">
@@ -254,7 +268,7 @@
 
 <h3 id="45-recomendacoes">4.5 Recomendações</h3>
 <p style="text-align: justify">  
-    O aterramento correto do equipamento diminui possíveis problemas causados por interferências oriundas de ambientes industrial. É recomendável seguir as seguintes recomendações:
+    O aterramento correto do equipamento diminui possíveis problemas causados por interferências oriundas de ambientes industrial. É recomendável seguir as seguintes:
 </p>
 
 <div style="margin-left: 2em">
@@ -267,7 +281,7 @@
 
 <h2 id="5-parametrizacao">5 Parametrização</h2>
 <p style="text-align: justify">
-    Serão descritos neste capítulos parâmetros do indicador de Pesagem Onix EtherNet/IP, vínculo com a comunicação Ethernet
+    Serão descritos neste capítulos parâmetros do indicador de Pesagem Onix EtherNet/IP, vínculo com a comunicação Ethernet.
 </p>
 
 <h3 id="51-simbolos-para-descricao-das-propriedades">5.1 Símbolos para Descrição das propriedades</h3>
@@ -442,7 +456,7 @@
 <p><strong>Calculo da Informação Peso:</strong></p>
 <div style="text-align: justify margin-bottom: 0em">
     <p>
-        A informação peso é obtida através do calculo utilizando os dados PESO A, PESO B, PESO C e STS. O valor bruto da informação peso pode ser descrito conforme a formula abaixo.
+        A informação peso é obtida através do cálculo utilizando os dados PESO A, PESO B, PESO C e STS. O valor bruto da informação peso pode ser descrito conforme a formula abaixo.
     </p>
 </div>
 <div style="margin-left: 2em; background: rgb(228, 226, 226); width: 57%; margin-top: 0em margin-bottom: 0em">
@@ -452,7 +466,7 @@
 </div>
 <div style="text-align: justify margin-bottom: 0em">
     <p>
-        Após o calculo descrito acima as informações de sinal e casas decimais devem ser inseridas.
+        Após o cálculo descrito acima as informações de sinal e casas decimais devem ser inseridas.
     </p>
     <p>
         Segue abaixo dois exemplo do processamento das informações de peso em linguagem C e em linguagem Ladder.
@@ -478,7 +492,7 @@
 
         peso = (pesoA_ethernetIP * 65536) + (pesoB_ethernetIP * 256) + pesoC_ethernetIP
 
-        //mascara de bits com lógica AND para obtenção da configuração de casas decimais 
+        //máscara de bits com lógica AND para obtenção da configuração de casas decimais 
         p_decimal = sts_ethernetIP &amp; 0b0000000000000111;
 
         switch(p_decimal):
@@ -497,7 +511,7 @@
                 break;
         }
 
-        //mascara de bits com lógica AND para obtenção da configuração de sinal da pesagem 
+        //máscara de bits com lógica AND para obtenção da configuração de sinal da pesagem 
         sinal = sts_ethernetIP &amp; 0b0000000000001000;
 
         if(sinal != 0x0000)
@@ -545,7 +559,7 @@
 <p><b>Descrição:</b></p>
 
 <p style="text-align: justify">
-    Este parâmetro permite efetuar a leitura de tara obtida pelo equipamento. Esta informação é composta de dois valores de 16bits. Segue abaixo o descritivo do armazenamento da informação:
+    Este parâmetro permite efetuar a leitura de tara obtida do equipamento. Esta informação é composta de dois valores de 16bits. Segue abaixo o descritivo do armazenamento da informação:
 </p>
 
 <table>
@@ -657,7 +671,7 @@
 <p><strong>Calculo da Informação Tara:</strong></p>
 <div style="text-align: justify margin-bottom: 0em">
     <p>
-        A informação peso é obtida através do calculo utilizando os dados CASAS, TARA_A, TARA_B e TARA_C. O valor bruto da informação tara pode ser descrito conforme a formula abaixo.
+        A informação peso é obtida através do cálculo utilizando os dados CASAS, TARA_A, TARA_B e TARA_C. O valor bruto da informação tara pode ser descrito conforme a formula abaixo.
     </p>
 </div>
 <div style="margin-left: 2em; background: rgb(228, 226, 226); width: 57%; margin-top: 0em margin-bottom: 0em">
@@ -667,7 +681,7 @@
 </div>
 <div style="text-align: justify margin-bottom: 0em">
     <p>
-        Após o calculo descrito acima as informação de casas decimais devem ser inseridas.
+        Após o cálculo descrito acima as informação de casas decimais devem ser inseridas.
     </p>
     <p>
         Segue abaixo dois exemplo do processamento das informações de peso em linguagem C e em linguagem Ladder.
@@ -682,7 +696,7 @@
 
 <pre><code class="language-c">    /*
     * Valores atributos pesoA_ethernetIP , pesoB_ethernetIP,pesoB_ethernetIP 
-    * e sts_ethernetIP são aqueles recebidos pelo protocolo  EtherNetIP
+    * e sts_ethernetIP são aqueles recebidos pelo protocolo  EtherNet/IP
     */
     float TARA(uint16_t taraA_ethernetIP,uint16_t taraB_ethernetIP, uint16_t  taraC_ethernetIP, casas_ethernetIP)
     {
@@ -692,7 +706,7 @@
 
         tara = (taraA_ethernetIP * 65536) + (taraB_ethernetIP * 256) + taraC_ethernetIP
 
-        //mascara de bits com lógica AND para obtenção da configuração de casas decimais 
+        //máscara de bits com lógica AND para obtenção da configuração de casas decimais 
         t_decimal = casas_ethernetIP &amp; 0b0000000000000111;
 
         switch(t_decimal):
@@ -771,7 +785,7 @@
 </tbody>
 </table>
 <p style="text-align: justify">
-    A tabela abaixo apresenta todos os valores possiveis para FIL. É importante destacar que quanto maior o valor do filtro maior será a estabilidade entregue pelo sistema, consequentemente o tempo de resposta aumenta. 
+    A tabela abaixo apresenta todos os valores possíveis para FIL. É importante destacar que quanto maior o valor do filtro maior será a estabilidade entregue pelo sistema, consequentemente o tempo de resposta aumenta. 
 </p>
 
 <table>
@@ -821,7 +835,7 @@
 </tbody>
 </table>
 <p style="text-align: justify">
-    A tabela abaixo apresenta todos os valores possiveis para Fator de Sensibilidade. 
+    A tabela abaixo apresenta todos os valores possíveis para Fator de Sensibilidade. 
 </p>
 
 <table>
@@ -948,6 +962,265 @@
 </tr>
 </tbody>
 </table>
+<h4 id="531-acao-de-tara">5.3.1 Ação de Tara</h4>
+<p style="text-align: justify">
+    A escrita sobre esta posição de memória permite efetuar a ação de tara sobre o indicador de pesagem Onix-Ethernet/IP. Segue abaixo as informações referentes ao registrador, cabendo ressaltar que o mesmo possui comportamento exclusivo para escrita, a confirmação da ação de tara deve ser observada no registrador de leitura de tara.<br>
+    Quando a ação de tara é bem sucedida os registradores PM4 PM5 de somente leitura adquirem valor do valor anterior dos registradores.
+</p>
+<table>
+<thead>
+<tr>
+<th>PM</th>
+<th>Faixa de valores</th>
+<th>Propriedade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>0x0000  ~ 0x0001</td>
+<td>SE</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify">
+    Segue abaixo os valores de configuração para esse registrador: 
+</p>
+<table>
+<thead>
+<tr>
+<th align="center">Valores</th>
+<th align="center">Configurações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">Ação de Tara desligada (default)</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">Ação de Tara ligada</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify">
+    É importante que para a ação de tara ocorrer a leitura de peso atual do equipamento esteja como "estavel", não havendo este estado, o equipamento não efeturá a ação de tara. Segue abaixo a lógica necessária para o comando de tara sobre o equipamento: 
+</p>
+<div style="text-align: center">
+    <img src="img/006.png" alt="Vista frontal da Porta Ethernet (Inserir imagem)">
+    <p></p>
+</div>
+
+<h4 id="532-acao-de-zero">5.3.2 Ação de Zero</h4>
+<p style="text-align: justify">
+    A escrita sobre esta posição de memória permite efetuar duas ações, zero e destara sobre o indicador de pesagem Onix-Ethernet/IP. A ação de destara possui prioridade sobre a ação de zero, ocorrendo quando o indicador já possui valor de tara efetuada anteriormente, desfazendo esta operação, fazendo com que o valor de tara armazenado seja somado ao peso indicado no momento anterior à ação de destara.<br>
+    A ação de zero sobre o equipamento tem por objetivo eliminar a indicação de pesagem que o equipamento apresenta, com base em um percentual da carga máxima atribuída ao mesmo, podendo esse valor oscilar de 1 a 10% do fundo de escala do equipamento. Este percentual é configurado no equipamento de pesagem (vide página 107 indicador de pesagem Onix). Ao efetuar a ação de zero sobre o indicador de pesagem, caso o valor apresentado esteja dentro do limite configurado, a ação de zero ocorrerá, ocasionando no valor zero apresentado como leitura de peso. A ação de zero somente ocorre sobre o indicador de pesagem mediante a estabilidade de leitura, em caso de indicação de peso oscilante (com o valor do registrador de estabilidade STS diferente de 1) a ação de zero não ocorre<br> 
+    A visualização do sucesso do comando deve ser visualizado respectivamente na leitura de peso (PM2 e PM3) para ação de zero e leitura de tara para ação de destara  (PM4 e PM5).
+</p>
+<table>
+<thead>
+<tr>
+<th>PM</th>
+<th>Faixa de valores</th>
+<th>Propriedade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>0x0000  ~ 0x0001</td>
+<td>SE</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify">
+    Segue abaixo os valores de configuração para esse registrador: 
+</p>
+<table>
+<thead>
+<tr>
+<th align="center">Valores</th>
+<th align="center">Configurações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">Ação de Destara/Zero desligada (default)</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">Ação de Destara/Zero ligada</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify">
+    Fluxograma de operação da Ação de Destara/Zero:
+</p>
+
+<div style="text-align: center">
+    <img src="img/007.png" alt="Vista frontal da Porta Ethernet (Inserir imagem)">
+    <p></p>
+</div>
+
+<h4 id="533-acao-de-imprimir">5.3.3 Ação de Imprimir</h4>
+<p style="text-align: justify">
+    A escrita sobre esta posição de memória permite efetuar a ação de imprimir sobre indicadores de pesagem com a função imprimir habilitada. (Função não habilitada para indicadores de pesagem Onix e Onix EtherNet/IP).<br>
+    A ação de imprimir apenas efetua a ação do comando de impressão remota, sendo que as configurações de impressão (vide página 133 manual indicador de pesagem Onix).<br> 
+    A visualização do sucesso do comando deve ser feita com auxílio visual da impressora utilizada.Cabe destacar que a ação de imprimir só é possível mediante o valor estável de indicação de pesagem.
+</p>
+<table>
+<thead>
+<tr>
+<th>PM</th>
+<th>Faixa de valores</th>
+<th>Propriedade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>0x0000  ~ 0x0001</td>
+<td>SE</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify">
+    Segue abaixo os valores de configuração para esse registrador: 
+</p>
+<table>
+<thead>
+<tr>
+<th align="center">Valores</th>
+<th align="center">Configurações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">Ação de Impressão inativa (default)</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">Ação de Impressão ativa</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify">
+    Fluxograma de operação de Impressão :
+</p>
+
+<div style="text-align: center">
+    <img src="img/008.png" alt="Vista frontal da Porta Ethernet (Inserir imagem)">
+    <p></p>
+</div>
+
+<h4 id="534-acao-de-prap">5.3.4 Ação de PrAP</h4>
+<p style="text-align: justify">
+    Função exclusiva para aplicações que possui estabilização de até 500ms (Portaria 236/94 INMETRO). A função de PrAP tem por objetivo tornar visível a leitura dos valores intermediários de pesagem.<br>
+    Em aplicações onde o objetivo é apenas visualizar o peso final estabilizado, a função PrAP deve permanecer desabilitado.<br>
+    O status atual de configuração de PrAP pode ser acessado através de  PM 8 (SL).
+</p>
+
+<table>
+<thead>
+<tr>
+<th>PM</th>
+<th>Faixa de valores</th>
+<th>Propriedade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>0x0000  ~ 0x0001</td>
+<td>SE</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify">
+    Segue abaixo os valores de configuração para esse registrador: 
+</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Valores</th>
+<th align="center">Configurações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">Ação de PrAP inativo (default)</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">Ação de PrAP ativo</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify">
+    Fluxograma de configuração de PrAP:
+</p>
+
+<div style="text-align: center">
+    <img src="img/009.png" alt="Vista frontal da Porta Ethernet (Inserir imagem)">
+    <p></p>
+</div>
+
+<h4 id="535-acao-de-filtro">5.3.5 Ação de Filtro</h4>
+<table>
+<thead>
+<tr>
+<th>PM</th>
+<th>Faixa de valores</th>
+<th>Propriedade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6</td>
+<td>0x0000  ~ 0x000B</td>
+<td>SE</td>
+</tr>
+</tbody>
+</table>
+<h4 id="536-acao-de-fator-de-sensibilidade">5.3.6 Ação de Fator de Sensibilidade</h4>
+<table>
+<thead>
+<tr>
+<th>PM</th>
+<th>Faixa de valores</th>
+<th>Propriedade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>0x0001  ~ 0x0005</td>
+<td>SE</td>
+</tr>
+</tbody>
+</table>
+<h4 id="537-acao-de-unidade-de-leitura">5.3.7 Ação de Unidade de Leitura</h4>
+<table>
+<thead>
+<tr>
+<th>PM</th>
+<th>Faixa de valores</th>
+<th>Propriedade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>0x0000  ~ 0x0001</td>
+<td>SE</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>
@@ -1001,6 +1274,6 @@
 </html>
 
 <!--
-MkDocs version : 1.2.3
-Build Date UTC : 2021-11-10 17:36:12.743975+00:00
+MkDocs version : 1.2.2
+Build Date UTC : 2021-11-17 17:03:10.653713+00:00
 -->
