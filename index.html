@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Home";
+    var mkdocs_page_name = "Manual";
     var mkdocs_page_input_path = "index.md";
     var mkdocs_page_url = null;
   </script>
@@ -47,7 +47,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href=".">Manual</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#1-introducao">1. Introdução</a>
     </li>
@@ -143,7 +143,7 @@
     
       
     
-    <li>Home</li>
+    <li>Manual</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -374,7 +374,7 @@
 </tbody>
 </table>
 <p><strong>Descrição Bits STS:</strong></p>
-<table>
+<table >
     <tr>
         <td><b>BITS</b></td>
         <td><b>INFORMAÇÃO</b></td>
@@ -940,7 +940,7 @@
 <thead>
 <tr>
 <th align="center">Valores</th>
-<th align="center">Fator de Sensibilidade</th>
+<th align="center">Unidade de Leitura</th>
 </tr>
 </thead>
 <tbody>
@@ -1171,6 +1171,12 @@
 </div>
 
 <h4 id="535-acao-de-filtro">5.3.5 Ação de Filtro</h4>
+<p style="text-align: justify">
+    A escrita sobre esta posição de memória permite efetuar a ação de configuração de filtro do indicador de pesagem Onix EtherNet/IP.<br>
+    A configuração de filtro possui ação direta na atenuação de oscilações de pesagem, motivadas por interferências mecânicas e/ou eletromagnética. Existe a possibilidade de 12 configurações diferentes, quanto maior o valor de filtro maior será a ação dos de estabilização sobre o sistema. A configuração do filtro impacta diretamente no tempo de resposta do indicador, conforme o valor de filtro é aumentado o tempo de resposta também aumenta proporcionalmente.<br>
+    O status atual de configuração de Filtro pode ser acessado através de  PM 6 (SL).
+</p>
+
 <table>
 <thead>
 <tr>
@@ -1187,7 +1193,44 @@
 </tr>
 </tbody>
 </table>
+<p style="text-align: justify">
+    A tabela abaixo apresenta todos os valores possíveis para FIL: 
+</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Valores</th>
+<th align="center">Filtro DIGITAL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">Desabilitado - sem atuação do filtro</td>
+</tr>
+<tr>
+<td align="center">1,2,3,4,5,6,7,8,9,10,11</td>
+<td align="center">Filtro ativo</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify">
+    Fluxograma de configuração de FIL:
+</p>
+
+<div style="text-align: center">
+    <img src="img/010.png" alt="Vista frontal da Porta Ethernet (Inserir imagem)">
+    <p></p>
+</div>
+
 <h4 id="536-acao-de-fator-de-sensibilidade">5.3.6 Ação de Fator de Sensibilidade</h4>
+<p style="text-align: justify">
+    Juntamente com as Configurações de pesagem rápida (PrAP) e Filtro a configuração do Fator de Sensibilidade contribui para a obtenção de de pesagem mais estável.<br>
+    A configuração deste parâmetro obedece a carga máxima de trabalho sobre o sistema de pesagem.<br>
+    O status atual de configuração de Fator de Sensibilidade pode ser acessado através de  PM 7 (SL).
+</p>
+
 <table>
 <thead>
 <tr>
@@ -1204,7 +1247,62 @@
 </tr>
 </tbody>
 </table>
+<p style="text-align: justify">
+    A tabela abaixo apresenta todos os valores possíveis para Fator de Sensibilidade: 
+</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Valores</th>
+<th align="center">Filtro DIGITAL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">Respostas Rápidas (ideal para pesagem de carga viva)</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">Plataformas até 50 Kg</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">Plataformas até 100 Kg</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">Plataformas até 1000 Kg</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">Plataformas acima 1000 Kg</td>
+</tr>
+</tbody>
+</table>
+<div style="margin-left: 2em">
+    <p style="color: gray">
+        <b>Observação:</b> Os valores descritos acima não se tratam de valores obrigatórios, apenas recomendações conforme estudos efetuados.
+    </p>
+</div>
+
+<p style="text-align: justify">
+    Fluxograma de configuração de Fator de Sensibilidade:
+</p>
+
+<div style="text-align: center">
+    <img src="img/011.png" alt="Vista frontal da Porta Ethernet (Inserir imagem)">
+    <p></p>
+</div>
+
 <h4 id="537-acao-de-unidade-de-leitura">5.3.7 Ação de Unidade de Leitura</h4>
+<p style="text-align: justify">
+    A escrita sobre esta posição de memória permite efetuar a ação de configuração de da unidade de leitura dos indicadores de pesagem AEPH. (Função não presente no indicador de pesagem Onix e Onix EtherNet/IP)<br>
+    Esta configuração é efetuada com o propósito de alterar o led indicador de unidade de pesagem em indicadores com essa função e do valor impresso de pesagem quando existente, não tendo nenhuma influência sobre a leitura de peso efetuada.<br>
+    O status atual de configuração de Fator de Sensibilidade pode ser acessado através de  PM 9 (SL).
+</p>
+
 <table>
 <thead>
 <tr>
@@ -1216,11 +1314,49 @@
 <tbody>
 <tr>
 <td>8</td>
-<td>0x0000  ~ 0x0001</td>
+<td>0x0000  ~ 0x0008</td>
 <td>SE</td>
 </tr>
 </tbody>
 </table>
+<p style="text-align: justify">
+    A tabela abaixo apresenta todos os valores possíveis para Unidade de Leitura (UnL): 
+</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Valores</th>
+<th align="center">Unidade de Leitura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">Sem Unidade de Leitura</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">Tonelada - T</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">Kilograma - Kg</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">Grama - g</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify">
+    Fluxograma de configuração de Unidade de Leitura (UnL):
+</p>
+
+<div style="text-align: center">
+    <img src="img/012.png" alt="Vista frontal da Porta Ethernet (Inserir imagem)">
+    <p></p>
+</div>
               
             </div>
           </div>
@@ -1275,5 +1411,5 @@
 
 <!--
 MkDocs version : 1.2.2
-Build Date UTC : 2021-11-17 17:03:10.653713+00:00
+Build Date UTC : 2021-11-18 14:12:48.000218+00:00
 -->
